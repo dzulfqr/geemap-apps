@@ -12,7 +12,7 @@ def app():
     keys = list(geemap.basemaps.keys())[1:]
 
     basemap = st.selectbox("Pilih Peta Dasar", keys)
-    Map = geemap.Map()
+    m = geemap.Map()
     
     url = 'https://github.com/giswqs/geemap/raw/master/examples/data/us-cities.json'
     r = requests.get(url)
@@ -21,6 +21,6 @@ def app():
         
     maker_cluster = MarkerCluster(markers=[Marker(location=feature['geometry']['coordinates'][::-1]) for feature in json_data['features']], name = 'Markers')
     
-    Map.add_layer(maker_cluster)
-    Map.add_basemap(basemap)
-    Map.to_streamlit()
+    m.add_layer(maker_cluster)
+    m.add_basemap(basemap)
+    m.to_streamlit()
