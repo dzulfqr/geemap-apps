@@ -1,6 +1,6 @@
 import streamlit as st
 from multiapp import MultiApp
-from apps import home, basemaps, customize, datasets, opacity, nlcd_demo
+from apps import home, basemaps, customize, datasets, opacity, nlcd_demo, marker
 
 st.set_page_config(layout="wide")
 
@@ -15,6 +15,7 @@ apps.add_app("Change basemaps", basemaps.app)
 apps.add_app("Change opacity", opacity.app)
 apps.add_app("Search datasets", datasets.app)
 apps.add_app("NLCD Demo", nlcd_demo.app)
+apps.add_app("Contoh Cluster Marker", marker.app)
 
 # The main app
 apps.run()
