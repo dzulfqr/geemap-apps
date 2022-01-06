@@ -12,7 +12,7 @@ def app():
     keys = list(geemap.basemaps.keys())[1:]
 
     basemap = st.selectbox("Pilih Peta Dasar", keys)
-    m = geemap.Map()
+    m = geemap.Map(center=(40, -100), zoom=4, width=700, height=500)
     
     url = 'https://github.com/giswqs/geemap/raw/master/examples/data/us-cities.json'
     r = requests.get(url)
